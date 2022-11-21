@@ -3,7 +3,7 @@ while (main_lagi) {
   // menangkap pilihan player
   var player = prompt('Tulis salah satu: gunting, batu, kertas');
 
-  console.log(player);
+  console.log('Player: ' + player);
 
   // menangkap pilihan komputer
   // membangkitkan bilangan random
@@ -17,7 +17,7 @@ while (main_lagi) {
     bot = 'kertas';
   }
 
-  console.log(bot);
+  console.log('Bot: ' + bot);
 
   // menentukan rules
   var hasil = null;
@@ -28,30 +28,25 @@ while (main_lagi) {
   if (player === bot) {
     hasil = pesan_seri;
   } else if (player === 'gunting') {
+    /*
     if (bot === 'kertas') {
       hasil = pesan_menang;
     } else {
       hasil = pesan_kalah;
     }
+    */
+    hasil = (bot === 'kertas') ? pesan_menang : pesan_kalah;
   } else if (player === 'batu') {
-    if (bot === 'gunting') {
-      hasil = pesan_menang;
-    } else {
-      hasil = pesan_kalah;
-    }
+    hasil = (bot === 'gunting') ? pesan_menang : pesan_kalah;
   } else if (player === 'kertas') {
-    if (bot === 'batu') {
-      hasil = pesan_menang;
-    } else {
-      hasil = pesan_kalah;
-    }
+    hasil = (bot === 'batu') ? pesan_menang : pesan_kalah;
   } else {
     hasil = 'Input yang kamu lakukan belum benar';
   }
 
   // tampilkan hasil
   alert('Bot memilih ' + bot + '. ' + hasil);
-  console.log(`Hasil: ${hasil}`);
+  console.log(hasil + '\n ');
 
   main_lagi = confirm('Main lagi?');
 }
